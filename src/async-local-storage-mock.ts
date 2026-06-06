@@ -1,0 +1,1 @@
+export class AsyncLocalStorage { getStore() { return undefined; } run(_s: any, fn: any, ...a: any[]) { return fn(...a); } }
