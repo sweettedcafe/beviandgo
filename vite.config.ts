@@ -1,11 +1,5 @@
-import { defineConfig } from "@tanstack/react-start/config";
-import tsconfigPaths from "vite-tsconfig-paths";
+import { createApp } from "vinxi";
 
-export default defineConfig({
-  tsr: {
-    appDirectory: "src",
-  },
-  vite: {
-    plugins: [tsconfigPaths()],
-  },
+export default createApp({
+  routers: [],
 });
