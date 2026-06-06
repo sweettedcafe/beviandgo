@@ -5,12 +5,13 @@ import tsconfigPaths from "vite-tsconfig-paths";
 import path from "path";
 
 export default createApp({
+  server: {
+    preset: "cloudflare-pages",
+    // optional but recommended on Workers/Pages runtime:
+    unenv: undefined,
+  },
   routers: [
-    {
-      name: "public",
-      type: "static",
-      dir: "./public",
-    },
+    { name: "public", type: "static", dir: "./public" },
     {
       name: "client",
       type: "client",
@@ -23,10 +24,7 @@ export default createApp({
       vite: {
         resolve: {
           alias: [
-            {
-              find: /^node:async_hooks$/,
-              replacement: path.resolve("./src/async-hooks-mock.js"),
-            },
+            { find: /^node:async_hooks$/, replacement: path.resolve("./src/async-hooks-mock.js") },
             { find: "@", replacement: path.resolve("./src") },
           ],
         },
